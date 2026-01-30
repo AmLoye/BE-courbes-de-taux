@@ -1,0 +1,96 @@
+\documentclass{beamer}
+\usecolortheme{beaver}
+
+%Information to be included in the title page:
+\title{Bureau d’étude : courbes de taux}
+\author{Amaury Loye \and Thorpe Dia \and Merieme Khair}
+
+\institute{EURIA}
+\date{02/02/2025}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Table of Contents}
+\tableofcontents
+\end{frame}
+
+\begin{frame}
+\frametitle{Rappel du sujet}
+\begin{enumerate}
+    \item Rappeler le fonctionnement des marchés de taux.
+    \item Construire des courbes déterministes sur la base des taux échangés par maturités liquides.
+    \item Prolonger les courbes de taux sur les maturités manquantes ou peu liquides.
+    \item Proposer une approche stochastique pour projeter les courbes de taux en probabilité historique.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Motivations}
+courbe de taux sans risque : nécessaires au calculs Solvabilité 2 et IFRS 17
+publiée chaque mois par l’EIOPA
+\end{frame}
+
+\begin{frame}
+\frametitle{Principes}
+marécupérations taux sans risques observé [0, 20] ans
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Données utilisées}
+taux swap EURIBOR
+yield observés d’obligation d’état
+\end{frame}
+
+\begin{frame}
+\frametitle{bootstrap - récupération des taux sans risques observé}
+calcul des taux sans risques observé par récurrence
+données BCE
+taux swap euribor 3M du marché
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Courbe de taux EIOPA}
+méthode Smith Wilson
+\end{frame}
+
+\begin{frame}
+    \frametitle{un autre modèle classique : Nelson-Siegel-Svensson}
+    \begin{block}{Modèle de Nielson-Siegel 1987} 
+        \[
+        f(t)
+        = \beta_0
+        + \beta_1 e^{-t/\tau_1}
+        + \beta_2 \frac{t}{\tau_1} e^{-t/\tau_1}
+        \]
+    \end{block}
+
+    \begin{block}{Modèle de Nielson-Siegel-Svensson 1994} 
+        \[
+        f(t)
+        = \beta_0
+        + \beta_1 e^{-t/\tau_1}
+        + \beta_2 \frac{t}{\tau_1} e^{-t/\tau_1}
+        + \beta_3 \frac{t}{\tau_2} e^{-t/\tau_2}
+        \]
+    \end{block}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Bibliographie}
+\begin{itemize}
+    \item Svensson L. E., [1994] Estimating and Interpreting Forward Interest Rates: Sweden 1992-
+1994. Washington, D. C., National Bureau of Economic Research Working Paper no. 4871,
+    \item Brigo D., Mercurio F. [2007] Interest Rate Models - Theory and Practice: With Smile,
+Inflation and Credit, Springer Berlin Heidelberg.
+    \item Hull J. C., [2021] Options, futures, and other derivatives (9th ed), Pearson Global Edition
+\end{itemize}
+
+\end{frame}
+
+\end{document}
